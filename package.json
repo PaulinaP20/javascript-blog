@@ -13,6 +13,7 @@
     "test": "npm run test:html",
     "test:html": "html-validate *.html",
 
+
     "build": "npm-run-all build:* test",
     "build:sass": "sass --style=compressed --no-source-map sass:css",
     "build:autoprefixer": "postcss css/*.css --use autoprefixer -d css",
@@ -38,4 +39,5 @@
     "postcss-cli": "^8.3.1",
     "sass": "^1.81.0"
   }
+
 }

@@ -2,7 +2,7 @@
 
 /* Variables */
 
-$color-light: #fff;
+$color-light: #eae3e3;
 $color-dark: #444;
 
 $font-logo: 'Sacramento', cursive;
@@ -54,9 +54,31 @@ body {
 
 .posts {
   flex: 2 0 0;
+  position:relative;
+  overflow:auto;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:#c2b9b9;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #bab7b7;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
 }
 
 .sidebar, .posts {
+  height:auto;
   background: $color-light;
   margin-right: 10px;
   padding: 40px;
@@ -80,8 +102,16 @@ body {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size:18px;
   .active {
     font-weight: bold;
+  }
+  a {
+    text-decoration: none;
+    color:black;
+    &:hover {
+      color:grey;
+    }
   }
 }
 
@@ -102,9 +132,12 @@ body {
 /* Post */
 
 .post {
-  display: none;
+  position:absolute;
+  opacity:0;
+  transition:all 0.7s ease;
   &.active {
-    display: block;
+    opacity:1;
+    z-index:2;
   }
 }
 
@@ -118,3 +151,4 @@ body {
     margin: 0 10px 0 0;
   }
 }
+
