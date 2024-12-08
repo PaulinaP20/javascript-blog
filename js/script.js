@@ -85,6 +85,27 @@ function generateTitleLinks(customSelector='') {
 
 generateTitleLinks();
 
+function calculateTagsParams(tags){
+  /* define the params object */
+  const params ={
+    max:0,
+    min:999999
+  };
+  /*start loop for each tags */
+  for (let tag in tags){
+    console.log(tag + ' is used ' + tags[tag] + ' times');
+    /*use Math.min and Math.max*/
+    if(tags[tag]>params.max){
+      params.max=tags[tag];
+    }
+
+    if (tags[tag]<params.min){
+      params.min=tags[tag];
+    }
+  }
+  return params;
+}
+
 
 function generateTags(){
   /* [NEW] create a new variable allTags with an empty object */
@@ -138,6 +159,8 @@ function generateTags(){
   const tagList = document.querySelector(optTagsListSelector);
 
   /*[NEW] create variable for all links HTML code */
+  const tagsParams=calculateTagsParams(allTags);
+  console.log('tagsParams: ', tagsParams);
   let allTagsHTML='';
 
   /*[NEW] START LOOP:for each tag in allTags */
@@ -147,6 +170,7 @@ function generateTags(){
   }
   /*[NEW] END LOOP: for each tag in allTags */
   tagList.innerHTML=allTagsHTML;
+  console.log(allTags);
 }
 
 generateTags();
@@ -223,7 +247,6 @@ function generateAuthors(){
 
     /* add generated code to html variable */
     html+=linkHTML;
-    console.log(html);
     /* insert HTML of all the links into the author wrapper */
     authorWrapper.innerHTML=html;
 
@@ -284,3 +307,4 @@ function addClickListenersToAuthors(){
 }
 
 addClickListenersToAuthors();
+
