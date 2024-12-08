@@ -142,3 +142,34 @@ body {
   }
 }
 
+/* Tags */
+
+.tags li {
+  display:inline-block;
+  margin-right:5px;
+
+  .tag-size-1 {
+    font-size:12px;
+    color: #93c5fd;
+  }
+  .tag-size-2 {
+    font-size:14px;
+    color:#60a5fa;
+  }
+  .tag-size-3 {
+    font-size: 16px;
+    color:#3b82f6;
+  }
+  .tag.size-4 {
+    font-size:18px;
+    color:#2563eb;
+  }
+  .tag-size-5 {
+    font-size:20px;
+    color:#1e3a8a;
+  }
+
+
+
+}
+
